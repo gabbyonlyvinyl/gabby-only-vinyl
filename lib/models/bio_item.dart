@@ -22,7 +22,7 @@ class BioItem {
   factory BioItem.fromMap(Map<String, dynamic> map) {
     return BioItem(
       id: map['id']?.toString() ?? '',
-      artistName: map['artist_name'] as String? ?? 'DJ GABBY',
+      artistName: map['artist_name'] as String? ?? 'Gabby Only Vinyl',
       bioEn: map['bio_en'] as String? ?? 'Biography coming soon.',
       bioEs: map['bio_es'] as String?,
       profileImageUrl: map['profile_image_url'] as String?,

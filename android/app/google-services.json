@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "400233387869",
+    "project_id": "dj-gabby-official",
+    "storage_bucket": "dj-gabby-official.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400233387869:android:e857a73e293db6decfbab4",
+        "android_client_info": {
+          "package_name": "com.djgabby.official"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAczydwE7IIkwx-79q0lWy6cniQA_KARAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

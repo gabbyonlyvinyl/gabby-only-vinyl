@@ -34,32 +34,30 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             _currentIndex = index;
           });
         },
-        backgroundColor: const Color(0xFF1E1E1E),
-        indicatorColor: Colors.amber.withValues(alpha: 0.3),
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home, color: Colors.amber),
+            selectedIcon: Icon(Icons.home),
             label: 'Home',
           ),
           NavigationDestination(
             icon: Icon(Icons.calendar_month_outlined),
-            selectedIcon: Icon(Icons.calendar_month, color: Colors.amber),
+            selectedIcon: Icon(Icons.calendar_month),
             label: 'Events',
           ),
           NavigationDestination(
             icon: Icon(Icons.photo_library_outlined),
-            selectedIcon: Icon(Icons.photo_library, color: Colors.amber),
+            selectedIcon: Icon(Icons.photo_library),
             label: 'Gallery',
           ),
           NavigationDestination(
             icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person, color: Colors.amber),
+            selectedIcon: Icon(Icons.person),
             label: 'About',
           ),
           NavigationDestination(
             icon: Icon(Icons.favorite_outline),
-            selectedIcon: Icon(Icons.favorite, color: Colors.amber),
+            selectedIcon: Icon(Icons.favorite),
             label: 'Support',
           ),
         ],

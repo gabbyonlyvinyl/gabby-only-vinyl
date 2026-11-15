@@ -6,138 +6,196 @@ class SupportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121212),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF1E1E1E),
-        title: const Text(
-          'SUPPORT & BOOKINGS',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.5,
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+      backgroundColor: const Color(0xFF2C0A15),
+      body: SafeArea(
+        child: Stack(
           children: [
-            const Icon(
-              Icons.favorite_outline,
-              color: Colors.amber,
-              size: 64,
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              'Support DJ GABBY',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+            // 1. Groot 'GABBY' watermerk op de achtergrond
+            Positioned.fill(
+              child: Center(
+                child: Opacity(
+                  opacity: 0.08,
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: Text(
+                      'GABBY',
+                      style: TextStyle(
+                        fontSize: 220,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 12,
+                        color: const Color(0xFFE91E63),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Help power the music, live sets, and upcoming tours. Your support makes a direct impact.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white70,
-                fontSize: 14,
-                height: 1.4,
-              ),
-            ),
-            const SizedBox(height: 28),
-            _buildSupportCard(
-              title: 'Tip & Donation',
-              description: 'Support production and upcoming tracks directly via PayPal or card.',
-              buttonText: 'Send a Tip',
-              icon: Icons.coffee_outlined,
-              onPressed: () {},
-            ),
-            const SizedBox(height: 16),
-            _buildSupportCard(
-              title: 'Bookings & Management',
-              description: 'Inquire about festivals, club nights, and private event bookings.',
-              buttonText: 'Booking Request',
-              icon: Icons.event_available_outlined,
-              onPressed: () {},
-            ),
-            const SizedBox(height: 16),
-            _buildSupportCard(
-              title: 'Official Merchandise',
-              description: 'Exclusive DJ GABBY apparel and accessories coming soon.',
-              buttonText: 'Coming Soon',
-              icon: Icons.shopping_bag_outlined,
-              isSecondary: true,
-              onPressed: null,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
-  Widget _buildSupportCard({
-    required String title,
-    required String description,
-    required String buttonText,
-    required IconData icon,
-    required VoidCallback? onPressed,
-    bool isSecondary = false,
-  }) {
-    return Card(
-      color: const Color(0xFF1E1E1E),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(icon, color: Colors.amber, size: 24),
-                const SizedBox(width: 12),
-                Text(
-                  title,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
+            // 2. Schermcontent
+            SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 10),
+
+                  // Header titel
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: const TextSpan(
+                      text: 'SUPPORT & ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 2,
+                        color: Colors.white,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'BOOKINGS',
+                          style: TextStyle(
+                            color: Color(0xFF40E0D0),
+                            shadows: [
+                              Shadow(color: Color(0xFF40E0D0), blurRadius: 10),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Text(
-              description,
-              style: const TextStyle(
-                color: Colors.white60,
-                fontSize: 13,
-                height: 1.4,
-              ),
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: onPressed,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: isSecondary ? const Color(0xFF2C2C2C) : Colors.amber,
-                  foregroundColor: isSecondary ? Colors.white54 : Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                  const SizedBox(height: 28),
+
+                  // Centraal beeldmerk: roze vinyl met koptelefoon en oplichtende rand
+                  Container(
+                    width: 130,
+                    height: 130,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: const Color(0xFF8CE33E),
+                        width: 3.5,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF8CE33E).withOpacity(0.35),
+                          blurRadius: 18,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                      gradient: const RadialGradient(
+                        colors: [
+                          Color(0xFFFF4081),
+                          Color(0xFFE91E63),
+                          Color(0xFF880E4F),
+                          Color(0xFF1E050E),
+                        ],
+                        stops: [0.2, 0.5, 0.8, 1.0],
+                      ),
+                    ),
+                    child: const Center(
+                      child: Icon(
+                        Icons.headphones,
+                        color: Colors.white,
+                        size: 64,
+                      ),
+                    ),
                   ),
-                ),
-                child: Text(
-                  buttonText,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
+                  const SizedBox(height: 32),
+
+                  // Toelichting / subtitel
+                  const Text(
+                    'Direct contact opnemen of Gabby boeken voor een event?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 14,
+                      height: 1.4,
+                    ),
+                  ),
+                  const SizedBox(height: 28),
+
+                  // Knop 1: Roze actieknop voor contact
+                  Container(
+                    width: double.infinity,
+                    constraints: const BoxConstraints(maxWidth: 380),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFE91E63),
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        'NEEM CONTACT OP',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Knop 2: Groene actieknop voor boekingen
+                  Container(
+                    width: double.infinity,
+                    constraints: const BoxConstraints(maxWidth: 380),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF8CE33E),
+                        foregroundColor: Colors.black,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        'BOEK EEN AFSPRAAK',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 28),
+
+                  // Informatiekaart onderaan
+                  Container(
+                    width: double.infinity,
+                    constraints: const BoxConstraints(maxWidth: 380),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF1E050E).withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: const Color(0xFFE91E63).withOpacity(0.25),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.mail_outline, color: Color(0xFF40E0D0), size: 20),
+                        SizedBox(width: 10),
+                        Text(
+                          'gabbyonlyvinyl@gmail.com',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
